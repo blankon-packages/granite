@@ -1,0 +1,35 @@
+granite (0.3.0~r739+pkg78~ubuntu14.10.1+blankon1) tambora; urgency=medium
+
+  * New upload to blankon
+
+ -- mijortsa <azis.astrojim@surabaya.di.blankon.in>  Mon, 16 Jun 2014 19:33:58 +0700
+
+granite (0.3.0~r739+pkg78~ubuntu14.10.1) utopic; urgency=low
+
+  * Auto build.
+
+ -- Cody Garver <cody@elementaryos.org>  Wed, 04 Jun 2014 18:45:40 +0000
+
+granite (0.3.0) UNRELEASED; urgency=low
+
+  * New upstream release.
+
+ -- Rico Tzschichholz <ricotz@ubuntu.com>  Mon, 23 Dec 2013 21:22:42 +0100
+
+granite (0.2.3) UNRELEASED; urgency=low
+
+  * New upstream release.
+
+ -- Cody Garver <cody@elementaryos.org>  Fri, 30 Aug 2013 09:29:32 -0500
+
+granite (0.2.1-1) UNRELEASED; urgency=low
+
+  * New upstream release.
+
+ -- Cody Garver <cody@elementaryos.org>  Sat, 20 Jul 2013 07:08:43 -0500
+
+granite (0.2.0-1) UNRELEASED; urgency=low
+
+  * Initial release.
+
+ -- Devid Antonio Filoni <d.filoni@ubuntu.com>  Sat, 10 Nov 2012 22:44:20 +0200
