@@ -32,6 +32,7 @@ set (VALA_SOURCES
     Widgets/CompositedWindow.vala
     Widgets/AppMenu.vala
     Widgets/Welcome.vala
+    Widgets/WelcomeButton.vala
     Widgets/ToolButtonWithMenu.vala
     Widgets/PopOver.vala
     Widgets/ContractorView.vala
@@ -73,6 +74,12 @@ set (LIB_PATHS ${DEPS_LIBRARY_DIRS})
 link_directories (${LIB_PATHS})
 
 include_directories (${CMAKE_CURRENT_SOURCE_DIR}/Widgets)
+
+option (VAPI_COMMENTS "Include comments in the generated vapi file" OFF)
+
+if (VAPI_COMMENTS)
+    set (VALAC_OPTIONS ${VALAC_OPTIONS} --vapi-comments)
+endif ()
 
 vala_precompile (VALA_C ${PKG_NAME}
     ${VALA_SOURCES}

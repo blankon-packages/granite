@@ -45,7 +45,7 @@ set (PKG_DEPS
     gee-0.8)
 
 set (PKG_DEPS_CHECK
-    gtk+-3.0>=3.11.6
+    gtk+-3.0>=3.14
     gio-unix-2.0
     gthread-2.0
     gee-0.8)
@@ -61,8 +61,16 @@ set (VALAC_OPTIONS
      --thread
      --target-glib=2.32)
 
-if (CMAKE_SYSTEM_NAME MATCHES "Linux")
+if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     set (VALAC_OPTIONS ${VALAC_OPTIONS} --define=LINUX)
+elseif (${CMAKE_SYSTEM_NAME} MATCHES "DragonFly")
+    set (VALAC_OPTIONS ${VALAC_OPTIONS} --define=DRAGON_FLY)
+elseif (${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
+    set (VALAC_OPTIONS ${VALAC_OPTIONS} --define=FFREE_BSD)
+elseif (${CMAKE_SYSTEM_NAME} MATCHES "NetBSD")
+    set (VALAC_OPTIONS ${VALAC_OPTIONS} --define=NET_BSD)
+elseif (${CMAKE_SYSTEM_NAME} MATCHES "OpenBSD")
+    set (VALAC_OPTIONS ${VALAC_OPTIONS} --define=OPEN_BSD)
 endif ()
 
 add_subdirectory (lib)

@@ -1,29 +1,29 @@
-/***
-    Copyright (C) 2011-2013 Maxwell Barvian <maxwell@elementaryos.org>,
-                            Victor Eduardo <victoreduardm@gmal.com>
-
-    This program or library is free software; you can redistribute it
-    and/or modify it under the terms of the GNU Lesser General Public
-    License as published by the Free Software Foundation; either
-    version 3 of the License, or (at your option) any later version.
-
-    This library is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-    Lesser General Public License for more details.
- 
-    You should have received a copy of the GNU Lesser General
-    Public License along with this library; if not, write to the
-    Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-    Boston, MA 02110-1301 USA.
-***/
+/*
+ *  Copyright (C) 2011-2013 Maxwell Barvian <maxwell@elementaryos.org>,
+ *                          Victor Eduardo <victoreduardm@gmal.com>
+ *
+ *  This program or library is free software; you can redistribute it
+ *  and/or modify it under the terms of the GNU Lesser General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 3 of the License, or (at your option) any later version.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ *  Lesser General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Lesser General
+ *  Public License along with this library; if not, write to the
+ *  Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ *  Boston, MA 02110-1301 USA.
+ */
 
 using Gtk;
 
 /**
  * This class is for making a first-launch screen easily
  *
- * It can be used to create a list of one-time action items that need to be executed in order to setup the app. 
+ * It can be used to create a list of one-time action items that need to be executed in order to setup the app.
  *
  * {{../../doc/images/Welcome.png}}
  */
@@ -40,7 +40,7 @@ public class Granite.Widgets.Welcome : Gtk.EventBox {
      * Box for action items
      */
     protected Gtk.Box options;
-    
+
     /**
      * This is the title of the welcome widget.
      */
@@ -79,23 +79,21 @@ public class Granite.Widgets.Welcome : Gtk.EventBox {
         // Box properties
         content.homogeneous = false;
 
-        // Add content-view styling
-        get_style_context().add_class (StyleClass.CONTENT_VIEW);
-
         // Top spacer
         content.pack_start (new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0), true, true, 0);
 
         // Labels
         title_label = new Gtk.Label (title_text);
-        Utils.apply_text_style_to_label (TextStyle.H1, title_label);
+        title_label.get_style_context ().add_class ("h1");
 
         title_label.set_justify (Gtk.Justification.CENTER);
         content.pack_start (title_label, false, true, 0);
 
         subtitle_label = new Gtk.Label (subtitle_text);
-        Utils.apply_text_style_to_label (TextStyle.H2, subtitle_label);
+        subtitle_label.get_style_context ().add_class ("h2");
 
-        subtitle_label.sensitive = false;
+        subtitle_label.set_line_wrap (true);
+        subtitle_label.set_line_wrap_mode (Pango.WrapMode.WORD);
         subtitle_label.set_justify (Gtk.Justification.CENTER);
 
         content.pack_start (subtitle_label, false, true, 2);
@@ -189,43 +187,7 @@ public class Granite.Widgets.Welcome : Gtk.EventBox {
       */
     public int append_with_image (Gtk.Image? image, string option_text, string description_text) {
         // Option label
-        var label = new Gtk.Label (Markup.printf_escaped ("<span weight='medium' size='11700'>%s</span>", option_text));
-        label.use_markup = true;
-        label.halign = Gtk.Align.START;
-        label.valign = Gtk.Align.CENTER;
-
-        // Description label
-        var description = new Gtk.Label (Markup.printf_escaped ("<span weight='medium' size='11400'>%s</span>", description_text));
-        description.use_markup = true;
-        description.halign = Gtk.Align.START;
-        description.valign = Gtk.Align.CENTER;
-        description.sensitive = false;
-
-        // Button
-        var button = new Gtk.Button ();
-        button.set_relief (Gtk.ReliefStyle.NONE);
-
-        // Button contents wrapper
-        var button_contents = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 7);
-
-        // Add left image
-        if (image != null) {
-            image.set_pixel_size (48);
-            button_contents.pack_start (image, false, true, 8);
-        }
-
-        // Add right text wrapper
-        var text_wrapper = new Gtk.Box (Gtk.Orientation.VERTICAL, 3);
-        // top spacing
-        text_wrapper.pack_start (new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0), true, true, 0);
-        text_wrapper.pack_start (label, false, false, 0);
-        text_wrapper.pack_start (description, false, false, 0);
-        // bottom spacing
-        text_wrapper.pack_end (new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0), true, true, 0);
-
-        button_contents.pack_start (text_wrapper, false, true, 8);
-
-        button.add (button_contents);
+        var button = new WelcomeButton (image, option_text, description_text);
         children.append (button);
         options.pack_start (button, false, false, 0);
 
@@ -237,5 +199,18 @@ public class Granite.Widgets.Welcome : Gtk.EventBox {
 
         return this.children.index (button);
     }
-}
 
+    /**
+     * Returns a welcome button by index
+     *
+     * @param index index of action item to be returned
+     * @return welcome button at //index//, or //null// if //index// is invalid.
+     * @since 0.3
+     */
+    public Granite.Widgets.WelcomeButton? get_button_from_index (int index) {
+        if (index >= 0 && index < children.length ())
+            return children.nth_data (index) as WelcomeButton;
+
+        return null;
+    }
+}

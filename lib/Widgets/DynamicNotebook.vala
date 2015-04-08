@@ -1,21 +1,21 @@
-/***
-    Copyright (C) 2011-2013 Tom Beckmann <tom@elementaryos.org>
-    
-    This program or library is free software; you can redistribute it
-    and/or modify it under the terms of the GNU Lesser General Public
-    License as published by the Free Software Foundation; either
-    version 3 of the License, or (at your option) any later version.
-
-    This library is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-    Lesser General Public License for more details.
-
-    You should have received a copy of the GNU Lesser General
-    Public License along with this library; if not, write to the
-    Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-    Boston, MA 02110-1301 USA.
-***/
+/*
+ *  Copyright (C) 2011-2013 Tom Beckmann <tom@elementaryos.org>
+ *
+ *  This program or library is free software; you can redistribute it
+ *  and/or modify it under the terms of the GNU Lesser General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 3 of the License, or (at your option) any later version.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ *  Lesser General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Lesser General
+ *  Public License along with this library; if not, write to the
+ *  Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ *  Boston, MA 02110-1301 USA.
+ */
 
 namespace Granite.Widgets {
 
@@ -122,6 +122,16 @@ namespace Granite.Widgets {
             }
         }
 
+        bool _show_icon;
+        internal bool show_icon {
+            get { return _show_icon; }
+
+            set {
+                _icon.visible = value && !working;
+                _show_icon = value;
+            }
+        }
+
         internal Gtk.Image _icon;
         public GLib.Icon? icon {
             owned get { return _icon.gicon;  }
@@ -132,7 +142,11 @@ namespace Granite.Widgets {
         bool __working;
         public bool working {
             get { return __working; }
-            set { __working = _working.visible = value; _icon.visible = !value; }
+
+            set {
+                __working = _working.visible = value;
+                _icon.visible = show_icon && !value;
+            }
         }
 
         public Pango.EllipsizeMode ellipsize_mode {
@@ -532,7 +546,7 @@ namespace Granite.Widgets {
             get { return _show_icons; }
             set {
                 if (_show_icons != value) {
-                    tabs.foreach ((t) => t._icon.visible = (value && !t.working));
+                    tabs.foreach ((t) => t.show_icon = value);
                 }
                 _show_icons = value;
             }
@@ -658,10 +672,19 @@ namespace Granite.Widgets {
        /**
         * The text shown in the add button tooltip
         */
+#if VALA_0_26
+        public string add_button_tooltip {
+            get { _add_button_tooltip = add_button.tooltip_text; return _add_button_tooltip; }
+            set { add_button.tooltip_text = value; }
+        }
+        // Use temporary field to avoid breaking API this can be dropped while preparing for 0.4
+        string _add_button_tooltip;
+#else
         public string add_button_tooltip {
             get { return add_button.tooltip_text; }
             set { add_button.tooltip_text = value; }
         }
+#endif
 
         public Tab current {
             get { return tabs.nth_data (notebook.get_current_page ()); }
@@ -714,7 +737,7 @@ namespace Granite.Widgets {
         Gtk.Notebook notebook;
 
         private int tab_width = 150;
-        private static const int MAX_TAB_WIDTH = 150;
+        private static const int MAX_TAB_WIDTH = 174;
         private static const int TAB_WIDTH_PINNED = 18;
 
         public signal void tab_added (Tab tab);
@@ -741,6 +764,7 @@ namespace Granite.Widgets {
          */
         public DynamicNotebook () {
             this.notebook = new Gtk.Notebook ();
+            this.notebook.can_focus = false;
             this.visible_window = false;
             this.get_style_context ().add_class ("dynamic-notebook");
 
@@ -918,7 +942,7 @@ namespace Granite.Widgets {
             notebook.create_window.connect (on_create_window);
         }
 
-        ~Notebook () {
+        ~DynamicNotebook () {
             notebook.switch_page.disconnect (on_switch_page);
             notebook.page_added.disconnect (on_page_added);
             notebook.page_removed.disconnect (on_page_removed);
@@ -1056,14 +1080,6 @@ namespace Granite.Widgets {
                 return;
             }
 
-            var pin_state = !tab.pinned;
-            if (pin_state) {
-                tab._icon.visible = !tab.working;
-                tab.closable = tabs_closable;
-            } else {
-                tab._icon.visible = show_icons && !tab.working;
-            }
-
             recalc_order ();
             recalc_size ();
         }
@@ -1133,7 +1149,7 @@ namespace Granite.Widgets {
             this.notebook.set_tab_reorderable (tab.page_container, this.allow_drag);
             this.notebook.set_tab_detachable  (tab.page_container, this.allow_new_window);
 
-            tab._icon.visible = show_icons && !tab.working;
+            tab.show_icon = show_icons;
             tab.duplicate_m.visible = allow_duplication;
             tab.new_window_m.visible = allow_new_window;
             tab.pin_m.visible = allow_pinning;

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-23 19:24+0100\n"
+"POT-Creation-Date: 2014-10-29 15:12-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,177 +17,179 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/noelco/granite/po/../lib//Application.vala:164
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//GtkPatch/AboutDialog.vala:36
+msgid "Designed by:"
+msgstr ""
+
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//GtkPatch/AboutDialog.vala:55
+msgid "Written by:"
+msgstr ""
+
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//GtkPatch/AboutDialog.vala:93
+#, c-format
+msgid "© %s"
+msgstr ""
+
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//GtkPatch/AboutDialog.vala:111
+msgid "Documented by:"
+msgstr ""
+
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//GtkPatch/AboutDialog.vala:171
+#, c-format
+msgid "Translated by %s"
+msgstr ""
+
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//GtkPatch/AboutDialog.vala:355
+msgid "Close"
+msgstr ""
+
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//GtkPatch/AboutDialog.vala:456
+msgid "This program is published under the terms of the "
+msgstr ""
+
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//GtkPatch/AboutDialog.vala:456
+msgid " license, it comes with ABSOLUTELY NO WARRANTY; for details, visit "
+msgstr ""
+
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Application.vala:248
 msgid "Developers"
 msgstr ""
 
-#: /home/noelco/granite/po/../lib//Application.vala:174
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Application.vala:258
 msgid "Website"
 msgstr ""
 
-#: /home/noelco/granite/po/../lib//Widgets/AboutDialog.vala:124
-msgid "Translate This App"
-msgstr ""
-
-#: /home/noelco/granite/po/../lib//Widgets/AboutDialog.vala:129
-msgid "Report a Problem"
-msgstr ""
-
-#: /home/noelco/granite/po/../lib//Widgets/DynamicNotebook.vala:170
-#: /home/noelco/granite/po/../lib//Widgets/DynamicNotebook.vala:195
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/DynamicNotebook.vala:229
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/DynamicNotebook.vala:268
 msgid "Close Tab"
 msgstr ""
 
-#: /home/noelco/granite/po/../lib//Widgets/DynamicNotebook.vala:198
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/DynamicNotebook.vala:271
 msgid "Open in a new Window"
 msgstr ""
 
-#: /home/noelco/granite/po/../lib//Widgets/DynamicNotebook.vala:199
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/DynamicNotebook.vala:272
 msgid "Duplicate"
 msgstr ""
 
-#: /home/noelco/granite/po/../lib//Widgets/DynamicNotebook.vala:248
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/DynamicNotebook.vala:321
 msgid "Close Other Tab"
 msgstr ""
 
-#: /home/noelco/granite/po/../lib//Widgets/DynamicNotebook.vala:248
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/DynamicNotebook.vala:321
 msgid "Close Other Tabs"
 msgstr ""
 
-#: /home/noelco/granite/po/../lib//Widgets/DynamicNotebook.vala:350
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/DynamicNotebook.vala:497
 msgid "Clear All"
 msgstr ""
 
-#: /home/noelco/granite/po/../lib//Widgets/DynamicNotebook.vala:600
-#: /home/noelco/granite/po/../lib//Widgets/DynamicNotebook.vala:634
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/DynamicNotebook.vala:782
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/DynamicNotebook.vala:815
 msgid "New Tab"
 msgstr ""
 
-#: /home/noelco/granite/po/../lib//Widgets/DynamicNotebook.vala:601
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/DynamicNotebook.vala:783
 msgid "Undo Close Tab"
 msgstr ""
 
-#: /home/noelco/granite/po/../lib//Widgets/DynamicNotebook.vala:644
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/DynamicNotebook.vala:825
 msgid "Closed Tabs"
 msgstr ""
 
-#: /home/noelco/granite/po/../lib//Widgets/ContractorView.vala:103
-msgid "Could not contact Contractor. You may need to install it"
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/AboutDialog.vala:95
+msgid "Suggest Translations"
 msgstr ""
 
-#: /home/noelco/granite/po/../lib//Widgets/ContractorView.vala:103
-msgid "No action found for this file"
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/AboutDialog.vala:100
+msgid "Report a Problem"
 msgstr ""
 
-#: /home/noelco/granite/po/../lib//Widgets/AppMenu.vala:48
-#: /home/noelco/granite/po/../lib//Widgets/AppMenu.vala:59
-#: /home/noelco/granite/po/../lib//Widgets/AppMenu.vala:72
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/AppMenu.vala:48
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/AppMenu.vala:59
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/AppMenu.vala:72
 msgid "Menu"
 msgstr ""
 
-#: /home/noelco/granite/po/../lib//Widgets/AppMenu.vala:82
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/AppMenu.vala:82
 msgid "About"
 msgstr ""
 
-#: /home/noelco/granite/po/../lib//Widgets/TimePicker.vala:117
-msgid "PM:"
+#. / TRANSLATORS: this will only show up when 12-hours clock is in use
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/TimePicker.vala:129
+msgid "PM"
 msgstr ""
 
-#: /home/noelco/granite/po/../lib//Widgets/TimePicker.vala:135
+#. / TRANSLATORS: separates hours from minutes.
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/TimePicker.vala:149
 msgid ":"
 msgstr ""
 
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/ContractorView.vala:105
+msgid "Could not contact Contractor. You may need to install it"
+msgstr ""
+
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/ContractorView.vala:105
+msgid "No action found for this file"
+msgstr ""
+
 #. / TRANSLATORS: a GLib.DateTime format showing the hour (12h format) with seconds
-#: /home/noelco/granite/po/../lib//Widgets/Utils.vala:77
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/Utils.vala:77
 msgid "%l:%M:%S %p"
 msgstr ""
 
 #. / TRANSLATORS: a GLib.DateTime format showing the hour (12h format)
-#: /home/noelco/granite/po/../lib//Widgets/Utils.vala:80
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/Utils.vala:80
 msgid "%l:%M %p"
 msgstr ""
 
 #. / TRANSLATORS: a GLib.DateTime format showing the hour (24h format) with seconds
-#: /home/noelco/granite/po/../lib//Widgets/Utils.vala:85
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/Utils.vala:85
 msgid "%H:%M:%S"
 msgstr ""
 
 #. / TRANSLATORS: a GLib.DateTime format showing the hour (24h format)
-#: /home/noelco/granite/po/../lib//Widgets/Utils.vala:88
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/Utils.vala:88
 msgid "%H:%M"
 msgstr ""
 
 #. / TRANSLATORS: a GLib.DateTime format showing the weekday, date, and year
-#: /home/noelco/granite/po/../lib//Widgets/Utils.vala:102
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/Utils.vala:102
 msgid "%a %b %e %Y"
 msgstr ""
 
 #. / TRANSLATORS: a GLib.DateTime format showing the date and year
-#: /home/noelco/granite/po/../lib//Widgets/Utils.vala:105
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/Utils.vala:105
 msgid "%b %e %Y"
 msgstr ""
 
 #. / TRANSLATORS: a GLib.DateTime format showing the year
-#: /home/noelco/granite/po/../lib//Widgets/Utils.vala:108
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/Utils.vala:108
 msgid "%Y"
 msgstr ""
 
 #. / TRANSLATORS: a GLib.DateTime format showing the date
-#: /home/noelco/granite/po/../lib//Widgets/Utils.vala:111
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/Utils.vala:111
 msgid "%b %e"
 msgstr ""
 
 #. / TRANSLATORS: a GLib.DateTime format showing the weekday and year.
-#: /home/noelco/granite/po/../lib//Widgets/Utils.vala:114
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/Utils.vala:114
 msgid "%a %Y"
 msgstr ""
 
 #. / TRANSLATORS: a GLib.DateTime format showing the weekday
-#: /home/noelco/granite/po/../lib//Widgets/Utils.vala:117
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/Utils.vala:117
 #, c-format
 msgid "%a"
 msgstr ""
 
 #. / TRANSLATORS: a GLib.DateTime format showing the weekday and date
-#: /home/noelco/granite/po/../lib//Widgets/Utils.vala:120
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/Utils.vala:120
 msgid "%a %b %e"
 msgstr ""
 
 #. / TRANSLATORS: a GLib.DateTime format showing the month.
-#: /home/noelco/granite/po/../lib//Widgets/Utils.vala:123
+#: /tmp/tmp.nk1L7TnOTp/granite/po/../lib//Widgets/Utils.vala:123
 msgid "%b"
-msgstr ""
-
-#: /home/noelco/granite/po/../lib//GtkPatch/AboutDialog.vala:36
-msgid "Designed by:"
-msgstr ""
-
-#: /home/noelco/granite/po/../lib//GtkPatch/AboutDialog.vala:55
-msgid "Written by:"
-msgstr ""
-
-#: /home/noelco/granite/po/../lib//GtkPatch/AboutDialog.vala:93
-#, c-format
-msgid "Copyright © %s"
-msgstr ""
-
-#: /home/noelco/granite/po/../lib//GtkPatch/AboutDialog.vala:111
-msgid "Documented by:"
-msgstr ""
-
-#: /home/noelco/granite/po/../lib//GtkPatch/AboutDialog.vala:171
-#, c-format
-msgid "Translated by %s"
-msgstr ""
-
-#: /home/noelco/granite/po/../lib//GtkPatch/AboutDialog.vala:355
-msgid "Close"
-msgstr ""
-
-#: /home/noelco/granite/po/../lib//GtkPatch/AboutDialog.vala:456
-msgid "This program is published under the terms of the "
-msgstr ""
-
-#: /home/noelco/granite/po/../lib//GtkPatch/AboutDialog.vala:456
-msgid " license, it comes with ABSOLUTELY NO WARRANTY; for details, visit "
 msgstr ""

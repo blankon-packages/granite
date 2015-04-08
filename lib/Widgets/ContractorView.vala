@@ -1,21 +1,21 @@
-/***
-    Copyright (C) 2011-2013 Tom Beckmann <tom@elementaryos.org>
-
-    This program or library is free software; you can redistribute it
-    and/or modify it under the terms of the GNU Lesser General Public
-    License as published by the Free Software Foundation; either
-    version 3 of the License, or (at your option) any later version.
-
-    This library is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-    Lesser General Public License for more details.
- 
-    You should have received a copy of the GNU Lesser General
-    Public License along with this library; if not, write to the
-    Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-    Boston, MA 02110-1301 USA.
-***/
+/*
+ *  Copyright (C) 2011-2013 Tom Beckmann <tom@elementaryos.org>
+ *
+ *  This program or library is free software; you can redistribute it
+ *  and/or modify it under the terms of the GNU Lesser General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 3 of the License, or (at your option) any later version.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ *  Lesser General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Lesser General
+ *  Public License along with this library; if not, write to the
+ *  Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ *  Boston, MA 02110-1301 USA.
+ */
 
 using Gtk;
 
@@ -35,7 +35,7 @@ public class Granite.Widgets.ContractorView : TreeView {
     public delegate void ContractCallback ();
     private Gee.HashMap<int, DelegateWrapper?> outsiders;
     private int[] blacklisted_pos;
-    private ListStore list;
+    private Gtk.ListStore list;
 
     private struct DelegateWrapper { unowned ContractCallback method; }
     
@@ -73,7 +73,7 @@ public class Granite.Widgets.ContractorView : TreeView {
      */
     public ContractorView (string filename, string mime, int icon_size = 32, bool show_contract_name = true) {
         /* Setup the ListStore */
-        list = new ListStore (2, typeof (Gdk.Pixbuf), typeof (string));
+        list = new Gtk.ListStore (2, typeof (Gdk.Pixbuf), typeof (string));
         outsiders = new Gee.HashMap<int, DelegateWrapper?> ();
         this.model = list;
         

@@ -1,22 +1,22 @@
-/***
-    Copyright (C) 2011-2013 Robert Dyer,
-                            Rico Tzschichholz <ricotz@ubuntu.com>
-
-    This program or library is free software; you can redistribute it
-    and/or modify it under the terms of the GNU Lesser General Public
-    License as published by the Free Software Foundation; either
-    version 3 of the License, or (at your option) any later version.
-
-    This library is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-    Lesser General Public License for more details.
- 
-    You should have received a copy of the GNU Lesser General
-    Public License along with this library; if not, write to the
-    Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-    Boston, MA 02110-1301 USA.
-***/
+/*
+ *  Copyright (C) 2011-2013 Robert Dyer,
+ *                          Rico Tzschichholz <ricotz@ubuntu.com>
+ *
+ *  This program or library is free software; you can redistribute it
+ *  and/or modify it under the terms of the GNU Lesser General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 3 of the License, or (at your option) any later version.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ *  Lesser General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Lesser General
+ *  Public License along with this library; if not, write to the
+ *  Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ *  Boston, MA 02110-1301 USA.
+ */
 
 namespace Granite.Services {
 
@@ -155,7 +155,7 @@ namespace Granite.Services {
         
         construct {
         
-            debug ("Loading settings from schema '%s'", schema.schema);
+            debug ("Loading settings from schema '%s'", schema.schema_id);
             
             var obj_class = (ObjectClass) get_type ().class_ref ();
             var properties = obj_class.list_properties ();
@@ -190,7 +190,7 @@ namespace Granite.Services {
         
         void handle_verify_notify (Object sender, ParamSpec property) {
         
-            warning ("Key '%s' failed verification in schema '%s', changing value", property.name, schema.schema);
+            warning ("Key '%s' failed verification in schema '%s', changing value", property.name, schema.schema_id);
         }
         
         private void call_verify (string key) {
@@ -252,7 +252,7 @@ namespace Granite.Services {
                 notify.connect (handle_notify);
                 return;
             } else {
-                debug ("Unsupported settings type '%s' for key '%s' in schema '%s'", type.name (), key, schema.schema);
+                debug ("Unsupported settings type '%s' for key '%s' in schema '%s'", type.name (), key, schema.schema_id);
                 notify.connect (handle_notify);
                 return;
             }
@@ -318,7 +318,7 @@ namespace Granite.Services {
             else if (type.is_a (typeof (SettingsSerializable)))
                 success = schema.set_string (key, (val.get_object () as SettingsSerializable).settings_serialize ());
             else
-                debug ("Unsupported settings type '%s' for key '%s' in schema '%s'", type.name (), key, schema.schema);
+                debug ("Unsupported settings type '%s' for key '%s' in schema '%s'", type.name (), key, schema.schema_id);
             
             if (!success)
                 warning ("Key '%s' could not be written to.", key);

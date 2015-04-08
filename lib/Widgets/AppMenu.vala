@@ -1,21 +1,21 @@
-/***
-    Copyright (C) 2011-2013 Mathijs Henquet
-
-    This program or library is free software; you can redistribute it
-    and/or modify it under the terms of the GNU Lesser General Public
-    License as published by the Free Software Foundation; either
-    version 3 of the License, or (at your option) any later version.
-
-    This library is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-    Lesser General Public License for more details.
- 
-    You should have received a copy of the GNU Lesser General
-    Public License along with this library; if not, write to the
-    Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-    Boston, MA 02110-1301 USA.
-***/
+/*
+ *  Copyright (C) 2011-2013 Mathijs Henquet
+ *
+ *  This program or library is free software; you can redistribute it
+ *  and/or modify it under the terms of the GNU Lesser General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 3 of the License, or (at your option) any later version.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ *  Lesser General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Lesser General
+ *  Public License along with this library; if not, write to the
+ *  Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ *  Boston, MA 02110-1301 USA.
+ */
 
 using Gtk;
 
@@ -45,7 +45,7 @@ namespace Granite.Widgets {
          */
         public AppMenu (Gtk.Menu menu) {
         
-            base (new Image.from_icon_name ("application-menu", IconSize.MENU), _("Menu"), menu);
+            base (new Image.from_icon_name ("open-menu", IconSize.MENU), _("Menu"), menu);
         }
 
         /**
@@ -56,7 +56,7 @@ namespace Granite.Widgets {
          */
         public AppMenu.with_app (Granite.Application? application, Gtk.Menu menu) {
         
-            base (new Image.from_icon_name ("application-menu", IconSize.MENU), _("Menu"), menu);
+            base (new Image.from_icon_name ("open-menu", IconSize.MENU), _("Menu"), menu);
             
             this.add_items (menu);
             
@@ -69,7 +69,7 @@ namespace Granite.Widgets {
         [Deprecated (since = "granite-0.1")]
         public AppMenu.with_urls (Gtk.Menu menu, string help_url, string translate_url, string bug_url) {
             critical("This is a deprecated creation method: AppMenu.with_urls");
-            base (new Image.from_icon_name ("application-menu", IconSize.MENU), _("Menu"), menu);
+            base (new Image.from_icon_name ("open-menu", IconSize.MENU), _("Menu"), menu);
         }
         
         /**
@@ -89,5 +89,4 @@ namespace Granite.Widgets {
     }
     
 }
-
 
